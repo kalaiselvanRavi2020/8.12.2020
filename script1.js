@@ -20,7 +20,21 @@ request.onload = function () {
     let sum =data.reduce(function (a,b){
         return a+b.population;
     },0);
-    
+    let country=data.filter((item) =>{
+        let flag=false;
+        item.currencies.forEach(a=>{
+            if(a.code==="USD")
+            flag=true;     
+        });
+        if(flag===true){
+            return true;
+        }
+        else{
+            return false;
+        }
+       
+    });
+    console.log(country);
 }
 function demo(a,b){
     console.log("Name:",a.name,"capital:",a.capital,"Flag:",a.flag);
